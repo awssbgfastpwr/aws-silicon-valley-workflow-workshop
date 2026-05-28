@@ -4,6 +4,14 @@ Certificate generation workflow for AWS Silicon Valley Workflow at FAST Peshawar
 
 ![Certificate template preview](docs/images/certificate-template-preview.png)
 
+## Event Scope and Private Key
+
+This certificate generator is built for the AWS Silicon Valley Workflow event. It should not be treated as the club's generic certificate system for every future event.
+
+For future events, the club should create a separate generic event certificate-maker repository with reusable event configuration, templates, and signing workflows.
+
+This tool cannot produce official club certificates without the club's private signing key. Public users can still learn from the code, run the workflow, and generate test certificates with their own private key, but those certificates are not official certificates for this event.
+
 ## What This Project Does
 
 The main generator creates spoof-resistant certificates from a CSV or XLSX attendee list. Each certificate includes:
@@ -132,6 +140,8 @@ On first run, the generator creates:
 - `.certificate_keys/public_key.json`
 
 Never share or upload `private_key.pem`. It is ignored by `.gitignore`.
+
+The official private key is required for official certificates. If you run this tool locally without the official private key, the generator can create a new local key for learning and testing only.
 
 The public key is safe to copy into the verification website. If you rotate keys later, keep old public keys in the verifier until all old certificates no longer need verification.
 

@@ -2,7 +2,16 @@
 
 Official workshop repository for the AWS Silicon Valley Workflow series hosted by AWS Cloud Club FAST Peshawar.
 
-This repository contains the workshop session material, FastAPI examples, AWS deployment exercises, and the certificate generation tooling used for signed QR-verified attendance certificates.
+This repository lives under the `awssbgfastpwr` university club organization. It is maintained as a public learning resource for students, club volunteers, technical leads, and workshop participants.
+
+## What This Repository Contains
+
+- session material for the AWS Silicon Valley Workflow workshop series
+- Python and FastAPI examples for backend development sessions
+- AWS access and deployment guidance for hands-on cloud sessions
+- a Lambda container deployment example for the final production launch
+- certificate generation tooling for signed QR-verified attendance certificates
+- club contribution, support, security, and governance documentation
 
 ## Repository Structure
 
@@ -16,6 +25,12 @@ This repository contains the workshop session material, FastAPI examples, AWS de
 ├── tools/
 │   └── certificate-generator/
 ├── docs/
+├── .github/
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── GOVERNANCE.md
+├── SECURITY.md
+├── SUPPORT.md
 └── README.md
 ```
 
@@ -28,6 +43,71 @@ This repository contains the workshop session material, FastAPI examples, AWS de
 | `sessions/03-cloud-access` | AWS access, IAM, billing safety, and cloud setup |
 | `sessions/04-final-production-launch` | Docker, Lambda container deployment, API Gateway, and production launch |
 
+Start with the session folder assigned by the workshop team. Each session has its own README with the setup steps and commands for that part of the workshop.
+
+## Quick Start
+
+Clone the repository:
+
+```bash
+git clone https://github.com/awssbgfastpwr/aws-silicon-valley-workflow-workshop.git
+cd aws-silicon-valley-workflow-workshop
+```
+
+For the FastAPI session:
+
+```bash
+cd sessions/02-python-fastapi
+uv sync
+uv run fastapi dev main.py
+```
+
+For the final deployment session:
+
+```bash
+cd sessions/04-final-production-launch
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+For certificate generation:
+
+```bash
+cd tools/certificate-generator
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+```
+
+See [tools/certificate-generator/README.md](tools/certificate-generator/README.md) for the full certificate workflow.
+
+## Community Docs
+
+This repository includes the standard club docs needed for public collaboration:
+
+- [CONTRIBUTING.md](CONTRIBUTING.md) - how students and volunteers should contribute
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) - expected behavior for club spaces and repository work
+- [GOVERNANCE.md](GOVERNANCE.md) - maintainer roles and decision process
+- [SECURITY.md](SECURITY.md) - how to report leaked secrets or security issues
+- [SUPPORT.md](SUPPORT.md) - where to ask for help
+- [.github/PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md) - pull request checklist
+- [.github/ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE/) - issue templates for bugs and workshop content updates
+
+## Public Repository Safety
+
+This repository is intended to stay public. Never commit:
+
+- AWS access keys, secret keys, session tokens, or downloaded credential files
+- `.env` files or private API keys
+- real attendee spreadsheets
+- generated certificate outputs
+- `.certificate_keys/`
+- private signing keys
+- local virtual environments and caches
+
+If a secret is committed, revoke or rotate it first, then report it using [SECURITY.md](SECURITY.md).
+
 ## Certificate Generator
 
 The certificate workflow lives in:
@@ -38,27 +118,24 @@ tools/certificate-generator/
 
 It generates signed attendance certificates from CSV or XLSX input and exports PDFs, PNGs, manifests, and a public verifier key. Private signing keys and generated outputs are ignored by Git.
 
-## Public Repository Safety
+This certificate generator is specific to the AWS Silicon Valley Workflow event. For future events, the club should create a separate generic event certificate-maker repository instead of treating this folder as the long-term reusable certificate system.
 
-This repository is safe to keep public as long as these files are never committed:
+The generator is not useful for producing official club certificates without the club's private signing key. Students and contributors can still study the workflow and generate learning certificates with their own private key.
 
-- `.certificate_keys/`
-- `outputs/`
-- generated manifests
-- real attendee spreadsheets
-- private API keys or cloud credentials
-- local virtual environments and caches
+## Leadership
 
-GitHub secret scanning, push protection, Dependabot alerts, and Dependabot security updates are enabled for the repository.
-
-## Technical Team
-
+- Club Lead and Executive Maintainer: Rayyan Shaheer
 - Technical Lead: Raqeeb
 - Technical Co-Leads: Abdul Kalam, Muhammad Taha, Hisam Mehboob
-- Club Lead: Rayyan Shaheer
+
+The Club Lead holds final authority for repository direction, maintainer access, public releases, and club-level decisions for this workshop.
 
 ## Repository
 
 ```text
-awsccfastpwr/aws-silicon-valley-workflow-workshop
+awssbgfastpwr/aws-silicon-valley-workflow-workshop
 ```
+
+## License
+
+No license file is currently included. Do not reuse this repository outside the workshop or club context until the maintainers add an explicit license.

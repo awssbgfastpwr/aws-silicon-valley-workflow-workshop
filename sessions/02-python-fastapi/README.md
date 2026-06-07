@@ -18,3 +18,8 @@ uv run fastapi dev main.py
 ```
 
 The sample API reads and writes `students.json` for demo purposes only.
+
+## Resources
+
+- [Session 2 Task](resources/session-2-task.pdf)
+- [The Silicon Valley Workshop](resources/the-silicon-valley-workshop.pdf)

@@ -7,6 +7,7 @@ This repository lives under the `awssbgfastpwr` university club organization. It
 ## What This Repository Contains
 
 - session material for the AWS Silicon Valley Workflow workshop series
+- PDF handouts, task sheets, and reference material linked from each session
 - Python and FastAPI examples for backend development sessions
 - AWS access and deployment guidance for hands-on cloud sessions
 - a Lambda container deployment example for the final production launch
@@ -44,6 +45,8 @@ This repository lives under the `awssbgfastpwr` university club organization. It
 | `sessions/04-final-production-launch` | Docker, Lambda container deployment, API Gateway, and production launch |
 
 Start with the session folder assigned by the workshop team. Each session has its own README with the setup steps and commands for that part of the workshop.
+
+Session PDFs and handouts live in each session's `resources/` folder and are linked from that session README.
 
 ## Quick Start
 

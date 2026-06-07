@@ -13,3 +13,7 @@ AWS account access, IAM basics, and cloud safety setup for workshop participants
 ## Safety Notes
 
 Do not commit AWS access keys, secret keys, session tokens, `.env` files, or downloaded credential files to this repository.
+
+## Resources
+
+- [Cloud Access Session 3](resources/cloud-access-session-3.pdf)

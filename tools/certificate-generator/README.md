@@ -145,6 +145,8 @@ The official private key is required for official certificates. If you run this 
 
 The public key is safe to copy into the verification website. If you rotate keys later, keep old public keys in the verifier until all old certificates no longer need verification.
 
+See [../../docs/certificate-verification.md](../../docs/certificate-verification.md) for the public-safe verification flow and key rotation notes.
+
 ## Verification URL Changes
 
 If the verification site moves:

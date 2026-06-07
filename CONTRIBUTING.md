@@ -63,6 +63,13 @@ Common prefixes:
 
 ## Local Checks
 
+Run the repository checks before opening a pull request:
+
+```bash
+python3 tools/check_markdown_links.py
+python3 tools/check_public_safety.py
+```
+
 For documentation-only changes, preview the Markdown and check links.
 
 For `sessions/02-python-fastapi`:

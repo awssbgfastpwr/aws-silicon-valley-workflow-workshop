@@ -1,61 +1,61 @@
-from fastapi import FastAPI, HTTPException, status
-import uvicorn
-from typing import Any
-from pydantic import BaseModel
 import json
+from pathlib import Path
+
+from fastapi import FastAPI, HTTPException, status
+from pydantic import BaseModel
+
+
 app = FastAPI()
-filename = "students.json"
-with open("students.json", "r") as file:
+DATA_FILE = Path(__file__).with_name("students.json")
+
+with DATA_FILE.open("r", encoding="utf-8") as file:
     students = json.load(file)
 
 
-class studentmodel(BaseModel):
+class StudentModel(BaseModel):
     name: str
     age: int
     major: str
 
 
-@app.get('/')
+@app.get("/")
 def root():
-    return {"Home": " Our home endpoint"}
+    return {"Home": "Our home endpoint"}
 
 
-@app.get('/studentdata/{id}')
+@app.get("/studentdata/{id}")
 def search_student(id: str):
-    if id in students.keys():
+    if id in students:
         return students[id]
 
     raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND, detail=" No student with such id"
+        status_code=status.HTTP_404_NOT_FOUND, detail="No student with such id"
     )
 
 
-@app.post('/studentdata')
-def add_student(body: studentmodel):
-    id = list(students.keys())
-    id = int(id[len(id)-1])+1
-    students[id] = {
-        "id": id,
-        **body.model_dump()
+@app.post("/studentdata")
+def add_student(body: StudentModel):
+    next_id = max([int(student_id) for student_id in students] or [0]) + 1
+    key = str(next_id)
+    students[key] = {
+        "id": next_id,
+        **body.model_dump(),
     }
-    with open(filename, "w")as file:
+    with DATA_FILE.open("w", encoding="utf-8") as file:
         json.dump(students, file, indent=4)
 
-    return students[id]
+    return students[key]
 
 
-@app.delete('/studentdata/{id}')
+@app.delete("/studentdata/{id}")
 def deletestudent(id: int):
     try:
         students.pop(str(id))
-        with open(filename, "w")as file:
+        with DATA_FILE.open("w", encoding="utf-8") as file:
             json.dump(students, file, indent=4)
-        return {"details:", f"student with id {id} has been deleted"}
-    except Exception:
+        return {"detail": f"student with id {id} has been deleted"}
+    except KeyError:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=" given id not found"
+            detail="given id not found",
         )
-
-    # if __name__ == "__main__":
-    #     uvicorn.run("main:app",host="127.0.0.1",port=800,reload=True)

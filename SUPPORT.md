@@ -6,6 +6,12 @@ Use this guide to decide where to ask for help.
 
 For help during a live session, ask the workshop mentors or the AWS Cloud Club FAST Peshawar team member assigned to your session.
 
+For troubleshooting before opening an issue:
+
+- [WSL, Git, and GitHub](docs/troubleshooting-wsl-git.md)
+- [Python, uv, and FastAPI](docs/troubleshooting-python-uv-fastapi.md)
+- [AWS, Docker, Lambda, and API Gateway](docs/troubleshooting-aws-docker-lambda.md)
+
 For repository issues after the session:
 
 - use GitHub issues for public problems with docs, commands, examples, or setup steps

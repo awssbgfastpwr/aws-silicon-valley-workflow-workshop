@@ -13,6 +13,23 @@ Environment setup for the AWS Silicon Valley Workflow workshop series.
 
 Students finish this session with a working local development environment and the command-line basics needed for the rest of the workshop.
 
+## Before You Start
+
+- Read [Participant Quickstart](../../docs/participant-quickstart.md).
+- Install Git and a code editor.
+- Use WSL with Ubuntu on Windows unless a mentor gives a different setup.
+
+## Done When
+
+- `git --version` prints a version.
+- You can clone this repository.
+- `git status` works from inside the repository.
+- Your Git name and email are configured.
+
+## Troubleshooting
+
+- [WSL, Git, and GitHub troubleshooting](../../docs/troubleshooting-wsl-git.md)
+
 ## Resources
 
 - [Advanced Git and GitHub Guide](resources/advanced-git-github-guide.pdf)

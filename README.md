@@ -48,6 +48,16 @@ Start with the session folder assigned by the workshop team. Each session has it
 
 Session PDFs and handouts live in each session's `resources/` folder and are linked from that session README.
 
+## Workshop Guides
+
+- [Workshop roadmap](docs/workshop-roadmap.md) - session sequence, outcomes, and maintainer checks
+- [Participant quickstart](docs/participant-quickstart.md) - setup steps before the first session
+- [Instructor guide](docs/instructor-guide.md) - public-safe live session notes for mentors
+- [WSL, Git, and GitHub troubleshooting](docs/troubleshooting-wsl-git.md)
+- [Python, uv, and FastAPI troubleshooting](docs/troubleshooting-python-uv-fastapi.md)
+- [AWS, Docker, Lambda, and API Gateway troubleshooting](docs/troubleshooting-aws-docker-lambda.md)
+- [Certificate verification notes](docs/certificate-verification.md)
+
 ## Quick Start
 
 Clone the repository:
@@ -108,6 +118,8 @@ This repository is intended to stay public. Never commit:
 - `.certificate_keys/`
 - private signing keys
 - local virtual environments and caches
+
+Use [docs/participant-quickstart.md](docs/participant-quickstart.md) and [docs/workshop-roadmap.md](docs/workshop-roadmap.md) when onboarding new students. Use [sessions/04-final-production-launch/CLEANUP.md](sessions/04-final-production-launch/CLEANUP.md) after AWS deployment labs.
 
 If a secret is committed, revoke or rotate it first, then report it using [SECURITY.md](SECURITY.md).
 

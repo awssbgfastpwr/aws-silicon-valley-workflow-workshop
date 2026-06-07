@@ -10,6 +10,8 @@ This project is a **Python FastAPI sentiment API** that:
 
 Live endpoint: replace this with your own API Gateway URL after deployment.
 
+Before deploying, read [AWS, Docker, Lambda, and API Gateway troubleshooting](../../docs/troubleshooting-aws-docker-lambda.md). After deploying, use [CLEANUP.md](CLEANUP.md) to remove workshop resources you no longer need.
+
 ## What this project does
 
 ### API routes
@@ -84,8 +86,18 @@ Open: `http://localhost:8000`
 
 Set Groq key (optional, enables roast mode):
 ```bash
-export GROQ_API_KEY="your_groq_api_key"
+export GROQ_API_KEY="<your_groq_api_key>"
 ```
+
+You can copy `.env.example` to `.env` for local testing, but do not commit `.env`.
+
+## Done When
+
+- `GET /health` returns `{"status":"ok"}` locally.
+- `POST /predict` returns a sentiment label and score.
+- The Lambda function reaches `Active`.
+- The API Gateway URL responds to `/health`.
+- Cleanup is complete after the lab if the resources are no longer needed.
 
 ---
 
@@ -220,7 +232,7 @@ Set Groq key in Lambda env variables (optional):
 ```bash
 aws lambda update-function-configuration \
   --function-name "$LAMBDA_FUNCTION" \
-  --environment "Variables={GROQ_API_KEY=your_groq_api_key}" \
+  --environment "Variables={GROQ_API_KEY=<your_groq_api_key>}" \
   --region "$AWS_REGION"
 ```
 
